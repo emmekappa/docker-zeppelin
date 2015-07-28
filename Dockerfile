@@ -27,7 +27,9 @@ RUN cp incubator-zeppelin/conf/zeppelin-site.xml.template incubator-zeppelin/con
 #RUN echo "MASTER=$SPARK_MASTER" >> conf/zeppelin-env.sh
 
 WORKDIR /incubator-zeppelin
-CMD ./bin/zeppelin-daemon.sh start
+ADD run.sh /incubator-zeppelin/run.sh
+RUN chmod +x /incubator-zeppelin/run.sh
+CMD run.sh
 
 EXPOSE 8080 8081 4040
 #8888 8081 4040 7001 7002 7003 7004 7005 7006 
