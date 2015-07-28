@@ -10,11 +10,11 @@ RUN apt-get -y update
 RUN /bin/echo debconf shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
 RUN apt-get -y install oracle-java7-installer oracle-java7-set-default git npm wget
 
-RUN wget http://apache.mirrors.timporter.net/maven/maven-3/3.1.1/binaries/apache-maven-3.1.1-bin.tar.gz
+RUN wget http://it.apache.contactlab.it/maven/maven-3/3.3.3/binaries/apache-maven-3.3.3-bin.tar.gz
 RUN mkdir -p /usr/local/apache-maven
-RUN mv apache-maven-3.1.1-bin.tar.gz /usr/local/apache-maven
-RUN tar -zxvf apache-maven-3.1.1-bin.tar.gz /usr/local/apache-maven
-RUN export M2_HOME=/usr/local/apache-maven/apache-maven-3.1.1
+RUN mv apache-maven-3.3.3-bin.tar.gz /usr/local/apache-maven
+RUN tar -zxvf apache-maven-3.3.3-bin.tar.gz /usr/local/apache-maven
+RUN export M2_HOME=/usr/local/apache-maven/apache-maven-3.3.3
 RUN export M2=$M2_HOME/bin
 RUN export MAVEN_OPTS="-Xms256m -Xmx512m"
 RUN export PATH=$M2:$PATH
