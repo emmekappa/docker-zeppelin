@@ -8,7 +8,7 @@ RUN apt-get install -y --force-yes software-properties-common python-software-pr
 RUN apt-add-repository -y ppa:webupd8team/java
 RUN /bin/echo debconf shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
 RUN apt-get -y update
-RUN apt-get -y install oracle-java7-installer oracle-java7-set-default git npm wget
+RUN apt-get -y install oracle-java7-installer oracle-java7-set-default git npm wget nano
 
 RUN wget http://it.apache.contactlab.it/maven/maven-3/3.3.3/binaries/apache-maven-3.3.3-bin.tar.gz
 RUN mkdir -p /usr/local/apache-maven	
@@ -27,7 +27,7 @@ RUN cd /incubator-zeppelin \
 
 ADD run.sh /incubator-zeppelin/run.sh
 RUN chmod +x /incubator-zeppelin/run.sh
-CMD run.sh
+CMD /incubator-zeppelin/run.sh
 
 EXPOSE 8080 8081 4040
 #8888 8081 4040 7001 7002 7003 7004 7005 7006 
