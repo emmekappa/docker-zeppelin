@@ -3,9 +3,7 @@ FROM ubuntu:14.04
 MAINTAINER Michele Cantelli <emmekappa@gmail.com>
 
 ENV DEBIAN_FRONTEND=noninteractive
-ENV CPU_CORES=8
-ENV MEMORY_PER_NODE=1g
-ENV ZEPPELIN_JAVA_OPTS="-Dspark.executor.memory=$MEMORY_PER_NODE -Dspark.cores.max=$CPU_CORES"
+ENV ZEPPELIN_JAVA_OPTS="-Dspark.executor.memory=1g -Dspark.cores.max=8"
 
 RUN apt-get -y update
 RUN apt-get install -y --force-yes software-properties-common python-software-properties
