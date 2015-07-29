@@ -20,13 +20,11 @@ ENV MAVEN_OPTS="-Xms256m -Xmx512m"
 ENV PATH=$M2:$PATH
 
 RUN git clone https://github.com/apache/incubator-zeppelin
-RUN cd incubator-zeppelin
-RUN cd incubator-zeppelin && mvn clean package -Pspark-1.3 -Dhadoop.version=2.4.0 -Phadoop-2.4 -DskipTests
-RUN cp incubator-zeppelin/conf/zeppelin-env.sh.template incubator-zeppelin/conf/zeppelin-env.sh
-RUN cp incubator-zeppelin/conf/zeppelin-site.xml.template incubator-zeppelin/conf/zeppelin-site.xml
-#RUN echo "MASTER=$SPARK_MASTER" >> conf/zeppelin-env.sh
+RUN cd /incubator-zeppelin \
+		mvn clean package -Pspark-1.3 -Dhadoop.version=2.4.0 -Phadoop-2.4 -DskipTests
+#RUN cp incubator-zeppelin/conf/zeppelin-env.sh.template incubator-zeppelin/conf/zeppelin-env.sh
+#RUN cp incubator-zeppelin/conf/zeppelin-site.xml.template incubator-zeppelin/conf/zeppelin-site.xml
 
-WORKDIR /incubator-zeppelin
 ADD run.sh /incubator-zeppelin/run.sh
 RUN chmod +x /incubator-zeppelin/run.sh
 CMD run.sh
