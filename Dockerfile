@@ -3,6 +3,10 @@ FROM ubuntu:14.04
 MAINTAINER Michele Cantelli <emmekappa@gmail.com>
 
 ENV DEBIAN_FRONTEND=noninteractive
+ENV CPU_CORES=8
+ENV MEMORY_PER_NODE=1g
+ENV ZEPPELIN_JAVA_OPTS="-Dspark.executor.memory=$MEMORY_PER_NODE -Dspark.cores.max=$CPU_CORES"
+
 RUN apt-get -y update
 RUN apt-get install -y --force-yes software-properties-common python-software-properties
 RUN apt-add-repository -y ppa:webupd8team/java
