@@ -17,4 +17,4 @@ echo SPARK_LOCAL_IP=$SPARK_LOCAL_IP
 echo SPARK_MASTER=$MASTER
 
 $ZEPPELIN_PATH/bin/zeppelin-daemon.sh start
-/bin/bash
+tail -f /dev/null
