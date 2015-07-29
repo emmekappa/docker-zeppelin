@@ -19,15 +19,16 @@ ENV M2=$M2_HOME/bin
 ENV MAVEN_OPTS="-Xms256m -Xmx512m"
 ENV PATH=$M2:$PATH
 
+ENV ZEPPELIN_PATH=/incubator-zeppelin
 RUN git clone https://github.com/apache/incubator-zeppelin
-RUN cd /incubator-zeppelin \
+RUN cd $ZEPPELIN_PATH \
 		mvn clean package -Pspark-1.3 -Dhadoop.version=2.4.0 -Phadoop-2.4 -DskipTests
-#RUN cp incubator-zeppelin/conf/zeppelin-env.sh.template incubator-zeppelin/conf/zeppelin-env.sh
-#RUN cp incubator-zeppelin/conf/zeppelin-site.xml.template incubator-zeppelin/conf/zeppelin-site.xml
+#RUN cp $ZEPPELIN_PATH/conf/zeppelin-env.sh.template incubator-zeppelin/conf/zeppelin-env.sh
+#RUN cp $ZEPPELIN_PATH/conf/zeppelin-site.xml.template incubator-zeppelin/conf/zeppelin-site.xml
 
-ADD run.sh /incubator-zeppelin/run.sh
-RUN chmod +x /incubator-zeppelin/run.sh
-CMD /incubator-zeppelin/run.sh
+ADD run.sh $ZEPPELIN_PATH/run.sh
+RUN chmod +x $ZEPPELIN_PATH/run.sh
+CMD $ZEPPELIN_PATH/run.sh
 
 EXPOSE 8080 8081 4040
 #8888 8081 4040 7001 7002 7003 7004 7005 7006 

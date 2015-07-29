@@ -16,5 +16,5 @@ echo SPARK_MASTER_IP=$SPARK_MASTER_IP
 echo SPARK_LOCAL_IP=$SPARK_LOCAL_IP
 echo SPARK_MASTER=$MASTER
 
-./bin/zeppelin-daemon.sh start
+$ZEPPELIN_PATH/bin/zeppelin-daemon.sh start
 /bin/bash
