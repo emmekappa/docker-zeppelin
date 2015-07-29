@@ -21,8 +21,7 @@ ENV PATH=$M2:$PATH
 
 ENV ZEPPELIN_PATH=/incubator-zeppelin
 RUN git clone https://github.com/apache/incubator-zeppelin
-RUN cd $ZEPPELIN_PATH \
-		mvn clean package -Pspark-1.3 -Dhadoop.version=2.4.0 -Phadoop-2.4 -DskipTests
+RUN cd $ZEPPELIN_PATH && mvn clean package -Pspark-1.3 -Dhadoop.version=2.4.0 -Phadoop-2.4 -DskipTests
 #RUN cp $ZEPPELIN_PATH/conf/zeppelin-env.sh.template incubator-zeppelin/conf/zeppelin-env.sh
 #RUN cp $ZEPPELIN_PATH/conf/zeppelin-site.xml.template incubator-zeppelin/conf/zeppelin-site.xml
 
