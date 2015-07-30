@@ -10,7 +10,7 @@ RUN apt-get install -y --force-yes software-properties-common python-software-pr
 RUN apt-add-repository -y ppa:webupd8team/java
 RUN /bin/echo debconf shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
 RUN apt-get -y update
-RUN apt-get -y install oracle-java7-installer oracle-java7-set-default git npm wget nano
+RUN apt-get -y install oracle-java7-installer oracle-java7-set-default git npm wget nano curl
 
 RUN wget http://it.apache.contactlab.it/maven/maven-3/3.3.3/binaries/apache-maven-3.3.3-bin.tar.gz
 RUN mkdir -p /usr/local/apache-maven	
