@@ -61,7 +61,7 @@
 
 <property>
   <name>zeppelin.notebook.s3.bucket</name>
-  <value>zeppelin-us-east-1-952784220812</value>
+  <value>zeppelin</value>
   <description>bucket name for notebook storage</description>
 </property>
 
