@@ -23,7 +23,7 @@ ENV MAVEN_OPTS="-Xms256m -Xmx512m"
 ENV PATH=$M2:$PATH
 
 ENV ZEPPELIN_PATH=/incubator-zeppelin
-RUN git clone --branch v0.5.0 https://github.com/apache/incubator-zeppelin.git
+RUN git https://github.com/apache/incubator-zeppelin.git
 RUN cd $ZEPPELIN_PATH && mvn clean package -Pspark-1.3 -Dhadoop.version=2.4.0 -Phadoop-2.4 -DskipTests
 #RUN cp $ZEPPELIN_PATH/conf/zeppelin-env.sh.template incubator-zeppelin/conf/zeppelin-env.sh
 ADD conf/zeppelin-site.xml incubator-zeppelin/conf/zeppelin-site.xml
