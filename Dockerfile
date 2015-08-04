@@ -4,6 +4,7 @@ MAINTAINER Michele Cantelli <emmekappa@gmail.com>
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV ZEPPELIN_JAVA_OPTS="-Dspark.executor.memory=1g -Dspark.cores.max=8"
+ENV ZEPPELIN_MEM="-Xmx1024m -XX:MaxPermSize=512m"
 
 RUN apt-get -y update
 RUN apt-get install -y --force-yes software-properties-common python-software-properties
