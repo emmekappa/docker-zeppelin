@@ -13,6 +13,7 @@ RUN yum -y install httpd-tools
 
 EXPOSE 8080
 EXPOSE 8081
+EXPOSE 80
 
 ADD nginx.conf /etc/nginx/nginx.conf
 ADD run.sh run.sh
