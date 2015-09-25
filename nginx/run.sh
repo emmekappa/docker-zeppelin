@@ -10,6 +10,9 @@ sed -i s/ZEPPELIN_PORT_8080_TCP_PORT/${ZEPPELIN_PORT_8080_TCP_PORT}/g /etc/nginx
 
 # log result
 cat /etc/nginx/nginx.conf
+
+echo "Configuring zeppelin user and password..."
+htpasswd -cb /etc/nginx/.htpasswd $ZEPPELIN_USER $ZEPPELIN_PASSWORD
  
 # Start nginx
 nginx

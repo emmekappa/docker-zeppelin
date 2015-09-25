@@ -16,7 +16,5 @@ EXPOSE 8081
 
 ADD nginx.conf /etc/nginx/nginx.conf
 ADD run.sh run.sh
-#ADD htpasswd /etc/nginx/.htpasswd
-RUN htpasswd -cb /etc/nginx/.htpasswd $ZEPPELIN_USER $ZEPPELIN_PASSWORD
 
 CMD bash run.sh
