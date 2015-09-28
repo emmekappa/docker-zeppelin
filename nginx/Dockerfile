@@ -11,7 +11,7 @@ RUN yum -y install nginx
 RUN yum -y install httpd-tools
 
 RUN mkdir -p /etc/nginx/ssl 
-RUN cd /etc/nginx/ssl && openssl req  -nodes -new -x509  -keyout /etc/nginx/ssl/server.key -out /etc/nginx/ssl/server.cert -subj "/C=IT/ST=Italy/L=Bologna/O=YOOX/OU=IT Department/CN=*"
+RUN cd /etc/nginx/ssl && openssl req  -nodes -new -x509  -keyout /etc/nginx/ssl/server.key -out /etc/nginx/ssl/server.crt -subj "/C=IT/ST=Italy/L=Bologna/O=YOOX/OU=IT Department/CN=*"
 
 EXPOSE 8080
 EXPOSE 8081
